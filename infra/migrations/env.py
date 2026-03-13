@@ -10,7 +10,6 @@ from sqlalchemy import engine_from_config, pool
 from packages.config.settings import get_settings
 from packages.db.base import Base
 
-
 config = context.config
 
 if config.config_file_name is not None:

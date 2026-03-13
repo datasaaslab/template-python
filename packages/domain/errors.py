@@ -1,5 +1,6 @@
 """Shared domain exception types for template projects."""
 
+
 class DomainError(Exception):
     """Base exception for domain-level failures."""
 

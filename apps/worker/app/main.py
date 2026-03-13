@@ -4,7 +4,6 @@ import logging
 
 from packages.config.settings import get_settings
 
-
 logger = logging.getLogger(__name__)
 
 

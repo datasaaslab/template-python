@@ -11,7 +11,5 @@ DEFAULT_POSTGRES_PASSWORD: Final[str] = "template"
 DEFAULT_POSTGRES_DB: Final[str] = "template"
 DEFAULT_POSTGRES_HOST: Final[str] = "localhost"
 DEFAULT_POSTGRES_PORT: Final[int] = 5432
-DEFAULT_DATABASE_URL: Final[str] = (
-    "postgresql+psycopg://template:template@localhost:5432/template"
-)
+DEFAULT_DATABASE_URL: Final[str] = "postgresql+psycopg://template:template@localhost:5432/template"
 DEFAULT_SECRET_KEY: Final[str] = "change-me-for-real-projects"
