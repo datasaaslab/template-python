@@ -1,0 +1,261 @@
+manifest_version: 1
+
+template:
+  name: python-agent-ready-template
+  description: >
+    Standard reusable scaffold baseline for Python API/worker repositories with
+    strict governance, tooling, docs, infra, and testing conventions.
+  owners:
+    - datasaaslab
+  scaffold_version: 1
+
+defaults:
+  mode: safe_merge
+  create_output_branch: true
+  output_branch_prefix: "chore/scaffold-template-sync"
+  commit_changes: true
+  commit_message: "chore(scaffold): align repository with template baseline"
+
+policy:
+  additive_only: true
+  delete_extra_files: false
+  preserve_unknown_files: true
+  preserve_git_directory: true
+  require_explicit_overwrite_for_existing_files: true
+
+paths:
+  managed_root_files:
+    - AGENTS.md
+    - README.md
+    - Makefile
+    - pyproject.toml
+    - .gitignore
+    - .editorconfig
+    - .env.example
+    - .python-version
+    - template.manifest.yaml
+
+  managed_directories:
+    - docs/
+    - apps/
+    - packages/
+    - infra/
+    - tests/
+    - scripts/
+    - .github/
+
+  create_if_missing:
+    - docs/analysis/
+    - docs/architecture/
+    - docs/backlog/
+    - docs/backlog/epics/
+    - docs/decisions/
+    - apps/api/app/
+    - apps/api/app/api/
+    - apps/api/app/dependencies/
+    - apps/api/app/services/
+    - apps/api/tests/
+    - apps/worker/app/
+    - apps/worker/app/consumers/
+    - apps/worker/app/runtime/
+    - apps/worker/app/executors/
+    - apps/worker/tests/
+    - packages/config/
+    - packages/contracts/api/
+    - packages/contracts/jobs/
+    - packages/contracts/events/
+    - packages/domain/models/
+    - packages/domain/services/
+    - packages/db/models/
+    - packages/db/repositories/
+    - packages/testing/factories/
+    - packages/testing/fixtures/
+    - infra/docker/env/
+    - infra/migrations/versions/
+    - tests/unit/
+    - tests/integration/
+    - tests/smoke/
+    - scripts/
+    - .github/workflows/
+
+merge_rules:
+  overwrite:
+    - AGENTS.md
+    - README.md
+    - Makefile
+    - pyproject.toml
+    - .gitignore
+    - .editorconfig
+    - .env.example
+    - .python-version
+    - template.manifest.yaml
+    - docs/dev.md
+    - docs/testing.md
+    - docs/analysis/product_context.md
+    - docs/backlog/README.md
+    - docs/architecture/overview.md
+    - docs/architecture/api.md
+    - docs/architecture/worker.md
+    - docs/architecture/data.md
+    - docs/decisions/ADR-001-postgres.md
+    - docs/decisions/ADR-002-python-tooling.md
+    - docs/decisions/ADR-003-worker-boundaries.md
+    - apps/api/app/main.py
+    - apps/worker/app/main.py
+    - packages/config/settings.py
+    - packages/config/types.py
+    - packages/config/constants.py
+    - packages/domain/errors.py
+    - packages/db/base.py
+    - packages/db/session.py
+    - packages/testing/helpers.py
+    - infra/docker/docker-compose.yml
+    - infra/migrations/alembic.ini
+    - infra/migrations/env.py
+    - scripts/bootstrap.sh
+    - scripts/lint.sh
+    - scripts/test.sh
+    - scripts/format.sh
+    - .github/workflows/ci.yml
+
+  protect:
+    - docs/backlog/epics/**
+    - packages/db/models/**
+    - packages/db/repositories/**
+    - packages/domain/models/**
+    - packages/domain/services/**
+    - packages/contracts/api/**
+    - packages/contracts/jobs/**
+    - packages/contracts/events/**
+    - apps/api/app/api/**
+    - apps/api/app/dependencies/**
+    - apps/api/app/services/**
+    - apps/api/tests/**
+    - apps/worker/app/consumers/**
+    - apps/worker/app/runtime/**
+    - apps/worker/app/executors/**
+    - apps/worker/tests/**
+    - tests/**
+    - infra/migrations/versions/**
+
+  exclude:
+    - .git/**
+    - .venv/**
+    - __pycache__/**
+    - .mypy_cache/**
+    - .pytest_cache/**
+    - .ruff_cache/**
+    - dist/**
+    - build/**
+    - .coverage
+    - htmlcov/**
+    - node_modules/**
+    - "*.pyc"
+
+placeholders:
+  keep_with_gitkeep:
+    - docs/backlog/epics/
+    - apps/api/app/api/
+    - apps/api/app/dependencies/
+    - apps/api/app/services/
+    - apps/api/tests/
+    - apps/worker/app/consumers/
+    - apps/worker/app/runtime/
+    - apps/worker/app/executors/
+    - apps/worker/tests/
+    - packages/contracts/api/
+    - packages/contracts/jobs/
+    - packages/contracts/events/
+    - packages/domain/models/
+    - packages/domain/services/
+    - packages/db/models/
+    - packages/db/repositories/
+    - packages/testing/factories/
+    - packages/testing/fixtures/
+    - infra/docker/env/
+    - infra/migrations/versions/
+    - tests/unit/
+    - tests/integration/
+    - tests/smoke/
+
+validation:
+  required_files:
+    - AGENTS.md
+    - README.md
+    - Makefile
+    - pyproject.toml
+    - .gitignore
+    - .editorconfig
+    - .env.example
+    - .python-version
+    - docs/analysis/product_context.md
+    - docs/architecture/overview.md
+    - docs/architecture/api.md
+    - docs/architecture/worker.md
+    - docs/architecture/data.md
+    - docs/backlog/README.md
+    - docs/decisions/ADR-001-postgres.md
+    - docs/decisions/ADR-002-python-tooling.md
+    - docs/decisions/ADR-003-worker-boundaries.md
+    - docs/dev.md
+    - docs/testing.md
+    - apps/api/app/main.py
+    - apps/worker/app/main.py
+    - packages/config/settings.py
+    - packages/config/types.py
+    - packages/config/constants.py
+    - packages/domain/errors.py
+    - packages/db/base.py
+    - packages/db/session.py
+    - packages/testing/helpers.py
+    - infra/docker/docker-compose.yml
+    - infra/migrations/alembic.ini
+    - infra/migrations/env.py
+    - scripts/bootstrap.sh
+    - scripts/lint.sh
+    - scripts/test.sh
+    - scripts/format.sh
+    - .github/workflows/ci.yml
+    - template.manifest.yaml
+    - tests/smoke/test_health.py
+
+  required_directories:
+    - docs/analysis/
+    - docs/architecture/
+    - docs/backlog/
+    - docs/backlog/epics/
+    - docs/decisions/
+    - apps/api/app/
+    - apps/api/app/api/
+    - apps/api/app/dependencies/
+    - apps/api/app/services/
+    - apps/api/tests/
+    - apps/worker/app/
+    - apps/worker/app/consumers/
+    - apps/worker/app/runtime/
+    - apps/worker/app/executors/
+    - apps/worker/tests/
+    - packages/config/
+    - packages/contracts/api/
+    - packages/contracts/jobs/
+    - packages/contracts/events/
+    - packages/domain/models/
+    - packages/domain/services/
+    - packages/db/models/
+    - packages/db/repositories/
+    - packages/testing/factories/
+    - packages/testing/fixtures/
+    - infra/docker/env/
+    - infra/migrations/versions/
+    - tests/unit/
+    - tests/integration/
+    - tests/smoke/
+
+reporting:
+  include_created_files: true
+  include_updated_files: true
+  include_skipped_files: true
+  include_protected_files: true
+  include_excluded_files: true
+  include_conflicts: true
+  include_commit_sha: true
