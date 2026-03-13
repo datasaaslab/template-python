@@ -80,6 +80,8 @@ warn_unreachable = true
 warn_unused_configs = true
 pretty = true
 show_error_codes = true
+namespace_packages = true
+explicit_package_bases = true
 plugins = ["pydantic.mypy"]
 exclude = [
   "^infra/migrations/versions/",

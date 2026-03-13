@@ -18,7 +18,7 @@ from packages.config.constants import (
     DEFAULT_SECRET_KEY,
     DEFAULT_WORKER_POLL_INTERVAL_SECONDS,
 )
-from packages.config.types import AppEnvironment
+from packages.config.enums import AppEnvironment
 
 
 class Settings(BaseSettings):
@@ -41,7 +41,7 @@ class Settings(BaseSettings):
     )
     database_url: str = Field(default=DEFAULT_DATABASE_URL, alias="DATABASE_URL")
     alembic_database_url: str = Field(default=DEFAULT_DATABASE_URL, alias="ALEMBIC_DATABASE_URL")
-    secret_key: SecretStr = Field(default=DEFAULT_SECRET_KEY, alias="SECRET_KEY")
+    secret_key: SecretStr = Field(default=SecretStr(DEFAULT_SECRET_KEY), alias="SECRET_KEY")
     postgres_user: str = Field(default=DEFAULT_POSTGRES_USER, alias="POSTGRES_USER")
     postgres_password: str = Field(default=DEFAULT_POSTGRES_PASSWORD, alias="POSTGRES_PASSWORD")
     postgres_db: str = Field(default=DEFAULT_POSTGRES_DB, alias="POSTGRES_DB")
