@@ -39,6 +39,7 @@ site/
 # IDEs and editors
 .idea/
 .vscode/
+!.vscode/settings.json
 *.swp
 *.swo
 
