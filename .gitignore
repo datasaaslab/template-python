@@ -20,6 +20,11 @@ env/
 htmlcov/
 coverage.xml
 
+
+.tmp-ruff-venv/
+.tmp-mypy-venv/
+packages/
+
 # Build artifacts
 build/
 dist/
